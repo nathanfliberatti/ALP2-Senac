@@ -10,15 +10,15 @@ public class PilhaCarro {
         top = -1;
     }
 
-    private boolean isFull() {
+    public boolean isFull() {
         return top == pilha.length;
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return top == -1;
     }
 
-    private void push(Carro carro) {
+    public void push(Carro carro) {
         if (!isFull()) {
             pilha[++top] = carro;
         } else {
@@ -26,7 +26,7 @@ public class PilhaCarro {
         }
     }
 
-    private Carro pop() {
+    public Carro pop() {
         if (!isEmpty()) {
             Carro carro = pilha[top];
             pilha[top--] = null;
@@ -35,15 +35,26 @@ public class PilhaCarro {
         return null;
     }
 
-    private Carro peek() {
+    public Carro peek() {
         if (!isEmpty()) {
             return pilha[top];
         }
         return null;
     }
 
-    private int size() {
+    public int size() {
         return top + 1;
+    }
+
+    public void exibirPilha() {
+        for (int i = 0; i < pilha.length; i++) {
+            if (pilha[i] != null) {
+                System.out.print(pilha[i] + " ");
+            } else {
+                System.out.print("[vazio] ");
+            }
+        }
+        System.out.println();
     }
 
 }
